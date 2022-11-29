@@ -8,7 +8,7 @@ const UsersListEl = styled.div`
   font-size: medium;
   gap: 1rem;
   background-color: aliceblue;
-  padding: 2rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   box-shadow: inset 1px 2px 5px grey;
 
@@ -16,11 +16,14 @@ const UsersListEl = styled.div`
 `;
 
 const UsersList = (props) => {
-  return (
-    <UsersListEl>
-      <UserSingle />
-    </UsersListEl>
-  );
+  const UsersList = () =>
+    props.usersData.map((user) => (
+      <UserSingle name={user.name} age={user.age} key={user.key} />
+    ));
+
+  return <UsersListEl>{UsersList()}</UsersListEl>;
 };
 
 export default UsersList;
+
+// key: new Date().toISOString(),

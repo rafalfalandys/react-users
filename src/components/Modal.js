@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 const ModalEl = styled.div`
   background-color: aliceblue;
@@ -51,10 +50,10 @@ const ModalEl = styled.div`
 
 const Modal = (props) => {
   return (
-    <ModalEl className={`${props.isVisible || "hidden"}`}>
+    <ModalEl className={`${props.onError.isVisible || "hidden"}`}>
       <h1>Invalid Input</h1>
-      <p>Please enter a valid age larger than 0</p>
-      <button onClick={props.onVisibilityChange}>Okay</button>
+      <p>{props.onError.errorMsg}</p>
+      <button onClick={props.onBtnClick}>Okay</button>
     </ModalEl>
   );
 };

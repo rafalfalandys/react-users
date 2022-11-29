@@ -35,6 +35,10 @@ const FormUser = styled.form`
     background-color: lightcoral;
     font-size: medium;
     align-self: center;
+
+    :active {
+      transform: scale(0.95);
+    }
   }
 `;
 
@@ -42,21 +46,35 @@ const Form = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
-  const setFormData = () => {
-    setEnteredName();
+  const nameChangeHandler = (e) => setEnteredName(e.target.value);
+  const ageChangeHandler = (e) => setEnteredAge(e.target.value);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      name: enteredName,
+      age: enteredAge,
+      key: new Date().toISOString(),
+    };
+    props.onAddUser(userData);
+    if (enteredName.trim() === "" || enteredAge.trim() === "") return;
+    setEnteredName("");
+    setEnteredAge("");
   };
 
-  const clickHandler = (e) => {
-    e.preventDefault();
-    console.log(e.target.values);
-    // props.onAddUser();
-  };
   return (
-    <FormUser onSubmit={clickHandler} onChange={setFormData}>
+    <FormUser onSubmit={submitHandler}>
       <label>Username</label>
-      <input type="text" value={enteredName} />
+      <input type="text" value={enteredName} onChange={nameChangeHandler} />
       <label>Age (Years)</label>
-      <input type="text" value={enteredAge} />
+      <input
+        type="number"
+        // min="0"
+        step="1"
+        value={enteredAge}
+        onChange={ageChangeHandler}
+      />
       <button type="submit">Add User</button>
     </FormUser>
   );
