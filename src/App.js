@@ -12,7 +12,7 @@ const MainContainer = styled.div`
   /* height: calc(100vh - 2rem); */
   margin: 1rem auto;
   border-radius: 1rem;
-  padding: 5rem;
+  padding: 5rem 2rem;
   box-shadow: 1px 3px 7px 0px grey;
 `;
 

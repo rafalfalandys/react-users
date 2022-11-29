@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Card from "./Card";
 
 const FormUser = styled.form`
   display: flex;
@@ -7,10 +8,6 @@ const FormUser = styled.form`
   align-items: start;
   font-size: medium;
   gap: 1rem;
-  background-color: aliceblue;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: inset 1px 2px 5px grey;
 
   label {
     margin-left: 1rem;
@@ -64,19 +61,21 @@ const Form = (props) => {
   };
 
   return (
-    <FormUser onSubmit={submitHandler}>
-      <label>Username</label>
-      <input type="text" value={enteredName} onChange={nameChangeHandler} />
-      <label>Age (Years)</label>
-      <input
-        type="number"
-        // min="0"
-        step="1"
-        value={enteredAge}
-        onChange={ageChangeHandler}
-      />
-      <button type="submit">Add User</button>
-    </FormUser>
+    <Card>
+      <FormUser onSubmit={submitHandler}>
+        <label>Username</label>
+        <input type="text" value={enteredName} onChange={nameChangeHandler} />
+        <label>Age (Years)</label>
+        <input
+          type="number"
+          // min="0"
+          step="1"
+          value={enteredAge}
+          onChange={ageChangeHandler}
+        />
+        <button type="submit">Add User</button>
+      </FormUser>
+    </Card>
   );
 };
 

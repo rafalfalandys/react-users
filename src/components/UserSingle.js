@@ -6,6 +6,7 @@ const UserBar = styled.div`
     font-size: medium;
     font-weight: 400;
     margin: 0;
+    line-height: 3rem;
   }
 `;
 ////////////////////////////////////////
