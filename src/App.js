@@ -48,7 +48,7 @@ function App() {
     <MainContainer>
       <Form onAddUser={addUser} onError={renderError} />
       <UsersList usersData={users} />
-      <Overlay isVisible={isModalVisible} />
+      <Overlay isVisible={isModalVisible} onClick={toggleModalVisibility} />
       <Modal
         onError={{ isVisible: isModalVisible, errorMsg: errorMsg }}
         onBtnClick={toggleModalVisibility}

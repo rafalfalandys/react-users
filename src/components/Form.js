@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Card from "./Card";
+import Button from "./Button";
 
 const FormUser = styled.form`
   display: flex;
@@ -73,7 +74,7 @@ const Form = (props) => {
           value={enteredAge}
           onChange={ageChangeHandler}
         />
-        <button type="submit">Add User</button>
+        <Button type="submit">Add User</Button>
       </FormUser>
     </Card>
   );

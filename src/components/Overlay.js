@@ -10,15 +10,15 @@ const OverlayEl = styled.div`
   backdrop-filter: blur(3px);
   z-index: 1;
   transition: all 0.4s;
-
-  &.hidden {
-    visibility: hidden;
-    opacity: 0;
-  }
 `;
 
 const Overlay = (props) => {
-  return <OverlayEl className={props.isVisible || "hidden"} />;
+  return (
+    <OverlayEl
+      className={props.isVisible || "hidden"}
+      onClick={props.onClick}
+    />
+  );
 };
 
 export default Overlay;

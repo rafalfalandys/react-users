@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "./Button";
 
 const ModalEl = styled.div`
   background-color: aliceblue;
@@ -29,23 +30,6 @@ const ModalEl = styled.div`
     padding: 3rem 3rem;
     font-size: medium;
   }
-
-  button {
-    margin: 2rem 0;
-    padding: 2rem;
-    width: auto;
-    border-radius: 10rem;
-    border: none;
-    box-shadow: 0px 2px 2px grey;
-    background-color: lightcoral;
-    font-size: medium;
-    align-self: center;
-  }
-
-  &.hidden {
-    visibility: hidden;
-    opacity: 0;
-  }
 `;
 
 const Modal = (props) => {
@@ -53,7 +37,9 @@ const Modal = (props) => {
     <ModalEl className={`${props.onError.isVisible || "hidden"}`}>
       <h1>Invalid Input</h1>
       <p>{props.onError.errorMsg}</p>
-      <button onClick={props.onBtnClick}>Okay</button>
+      <Button btnName="Okay" type="button" onClick={props.onBtnClick}>
+        Okay
+      </Button>
     </ModalEl>
   );
 };

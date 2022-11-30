@@ -17,7 +17,7 @@ const BtnEl = styled.button`
 `;
 
 const Button = (props) => {
-  return <BtnEl>{props.btnName}</BtnEl>;
+  return <BtnEl onClick={props.onClick}>{props.children}</BtnEl>;
 };
 
 export default Button;
